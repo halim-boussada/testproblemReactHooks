@@ -184,20 +184,19 @@ input::placeholder {
   display: flex;
   align-items: center;
 }
-#online {
+
+.circle {
   height: 7px;
   width: 7px;
-  background-color: #34ce57;
   border-radius: 30px;
   margin-right: 3px;
+  margin-left: 3px;
+}
+#online {
+  background-color: #34ce57;
 }
 #offline {
-  height: 7px;
-  width: 7px;
   background-color: grey;
-  border-radius: 30px;
-  margin-left: 3px;
-  margin-right: 3px;
 }
 #error {
   background-color: rgb(218, 108, 108);

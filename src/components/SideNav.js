@@ -18,9 +18,9 @@ function SideNave({ connected }) {
               <strong>{user.name}</strong>
               <div className="small">
                 {user.connected ? (
-                  <div id="online"></div>
+                  <div className="circle" id="online"></div>
                 ) : (
-                  <div id="offline"></div>
+                  <div className="circle" id="offline"></div>
                 )}
                 Online
               </div>
