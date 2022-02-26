@@ -1,10 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-// import App from "./App";
+import "./style/index.css";
 import AppHooks from "./AppHooks";
-import reportWebVitals from "./reportWebVitals";
-import data from "./data.json";
+
+import data from "./data/data.json";
 
 if (!localStorage.getItem("images")) {
   localStorage.setItem("images", JSON.stringify(data));
@@ -19,5 +18,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
-reportWebVitals();
