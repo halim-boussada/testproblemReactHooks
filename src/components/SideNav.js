@@ -17,11 +17,10 @@ function SideNave({ connected }) {
             <div className="flex">
               <strong>{user.name}</strong>
               <div className="small">
-                {user.connected ? (
-                  <div className="circle" id="online"></div>
-                ) : (
-                  <div className="circle" id="offline"></div>
-                )}
+                <div
+                  className="circle"
+                  id={user.connected ? "online" : "offline"}
+                ></div>
                 Online
               </div>
               <hr id="hr"></hr>
