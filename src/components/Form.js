@@ -1,31 +1,29 @@
 import React from "react";
 import moment from "moment";
+import { set, get, scrollDown } from "../helpers/helpers.js";
 
-function Form({ msg, setlist, setmsg, userImage, name }) {
-
-  function sendMsg() {
+const Form = ({ msg, setlist, setmsg, userImage, name }) => {
+  // send the message function
+  const sendMsg = (e) => {
+    e.preventDefault();
     if (msg.length) {
-      if (!localStorage.getItem("listOfMessages")) {
-        localStorage.setItem("listOfMessages", JSON.stringify([]));
-      }
-      var listv = JSON.parse(localStorage.getItem("listOfMessages"));
+      const listv = get("listOfMessages");
       listv.unshift({
         name: name,
         message: msg,
         date: moment(new Date()).format("h:mm a"),
         userImage: userImage,
       });
-      localStorage.setItem("listOfMessages", JSON.stringify(listv));
+      set("listOfMessages", listv);
       setlist(listv);
       setmsg("");
-      document.getElementById("body").scrollTop =
-        document.getElementById("body").scrollHeight;
+      scrollDown();
     }
-  }
+  };
 
   return (
     <div className="flex-grow-0 py-3 px-4 border-top">
-      <div className="input-group">
+      <form className="input-group">
         <input
           type="text"
           className="form-control"
@@ -37,15 +35,16 @@ function Form({ msg, setlist, setmsg, userImage, name }) {
         />
         <button
           className="btn btn-primary"
-          onClick={() => {
-            sendMsg();
+          type="submit"
+          onClick={(e) => {
+            sendMsg(e);
           }}
         >
           send
         </button>
-      </div>
+      </form>
     </div>
   );
-}
+};
 
 export default Form;

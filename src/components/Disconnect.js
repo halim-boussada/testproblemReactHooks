@@ -1,16 +1,18 @@
 import React from "react";
+import { set, get } from "../helpers/helpers.js";
 
-function Disconnect({ name, setloged }) {
-  function disconnect() {
-    var connectedv = JSON.parse(localStorage.getItem("connected"));
-    for (var i = 0; i < connectedv.length; i++) {
-      if (connectedv[i].name === name) {
-        connectedv[i].connected = false;
+const Disconnect = ({ name, setloged }) => {
+  // disconnect function that will change the state of the loged
+  const disconnect = () => {
+    const connectedv = get("connected");
+    connectedv.forEach((element) => {
+      if (element.name === name) {
+        element.connected = false;
       }
-    }
-    localStorage.setItem("connected", JSON.stringify(connectedv));
+    });
+    set("connected", connectedv);
     setloged(false);
-  }
+  };
   return (
     <h1 className="h3 mb-3">
       <button
@@ -23,6 +25,6 @@ function Disconnect({ name, setloged }) {
       </button>
     </h1>
   );
-}
+};
 
 export default Disconnect;

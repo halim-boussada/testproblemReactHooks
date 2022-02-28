@@ -1,6 +1,6 @@
 import React from "react";
 
-function SideNave({ connected }) {
+const SideNave = ({ connected }) => {
   return (
     <div className="list-group-item list-group-item-action border-0">
       {connected.map((user) => {
@@ -13,7 +13,6 @@ function SideNave({ connected }) {
               width="40"
               height="40"
             />
-
             <div className="flex">
               <strong>{user.name}</strong>
               <div className="small">
@@ -30,6 +29,6 @@ function SideNave({ connected }) {
       })}
     </div>
   );
-}
+};
 
 export default SideNave;
