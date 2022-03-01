@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./style/index.css";
 import AppHooks from "./AppHooks";
-
 import data from "./data/data.json";
 
 if (!localStorage.getItem("images")) {

@@ -1,21 +1,20 @@
 import React, { useState, useEffect } from "react";
-import Login from "./components/Login";
-
+import Login from "./view/Login";
+import { get } from "./helpers/helpers.js";
 import "./style/App.css";
-import Chat from "./components/Chat";
-function AppHooks() {
-  var [name, setname] = useState("");
-  var [userImage, setuserImage] = useState("");
-  var [connected, setconnected] = useState([]);
-  var [loged, setloged] = useState(true);
-  var [list, setlist] = useState([]);
+import Chat from "./view/Chat";
+
+const AppHooks = () => {
+  const [name, setname] = useState("");
+  const [userImage, setuserImage] = useState("");
+  const [connected, setconnected] = useState([]);
+  const [loged, setloged] = useState(true);
+  const [list, setlist] = useState([]);
 
   useEffect(() => {
-    setname(localStorage.getItem("username"));
-    setuserImage(localStorage.getItem("userimage"));
-    setlist(
-      JSON.parse(localStorage.getItem("listOfMessages")).reverse().slice(0, 25)
-    );
+    setname(get("username"));
+    setuserImage(get("userimage"));
+    setlist(get("listOfMessages").reverse().slice(0, 25));
     setloged(false);
   }, []);
 
@@ -43,6 +42,6 @@ function AppHooks() {
       )}
     </div>
   );
-}
+};
 
 export default AppHooks;
