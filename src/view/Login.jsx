@@ -42,14 +42,14 @@ const Login = ({ setname, setuserImage, setloged, setconnected }) => {
 
   return (
     <div id="signin">
-      <div className="form-outline mb-4">
-        <label className="form-label" for="form2Example1">
+      <div class="form-outline mb-4">
+        <label class="form-label" for="form2Example1">
           Username
         </label>
         <input
           type="email"
           id="form2Example1"
-          className="form-control"
+          class="form-control"
           onChange={(e) => {
             setUser(e.target.value);
           }}
@@ -58,7 +58,7 @@ const Login = ({ setname, setuserImage, setloged, setconnected }) => {
       </div>
       <button
         type="submit"
-        className="btn btn-primary btn-block mb-4"
+        class="btn btn-primary btn-block mb-4"
         placeholder="Username"
         onClick={() => {
           login();
